@@ -79,14 +79,14 @@ namespace OE.ALGA.Paradigmak
     {
         T[] tarolo;
         int n;
-        int aktualis = -1;
+        int aktualisIndex = -1;
         public FeladatTaroloBejaro(T[] tarolo, int n)
         {
             this.tarolo = tarolo;
             this.n = n;
         }
 
-        public T Current => tarolo[aktualis];
+        public T Current => tarolo[aktualisIndex];
 
         object IEnumerator.Current => Current;
 
@@ -97,9 +97,9 @@ namespace OE.ALGA.Paradigmak
 
         public bool MoveNext()
         {
-            if(aktualis< n - 1)
+            if(aktualisIndex< n - 1)
             {
-                aktualis++;
+                aktualisIndex++;
                 return true;
             }
             else
@@ -110,7 +110,7 @@ namespace OE.ALGA.Paradigmak
 
         public void Reset()
         {
-            aktualis=-1;
+            aktualisIndex =-1;
         }
     }
 
