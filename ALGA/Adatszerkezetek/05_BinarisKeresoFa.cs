@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace OE.ALGA.Adatszerkezetek
 {
@@ -22,9 +23,36 @@ namespace OE.ALGA.Adatszerkezetek
         {
             gyoker = null;
         }
+        static void ReszfaBejarasPreorder(FaElem<T> p, Action<T> muvelet)
+        {
+            if (p != null)
+            {
+                muvelet(p.tart);
+                ReszfaBejarasPreorder(p.bal, muvelet);
+                ReszfaBejarasPreorder(p.jobb, muvelet);
+            }
+        }
+        static void ReszfaBejarasInorder(FaElem<T> p, Action<T> muvelet)
+        {
+            if(p != null)
+            {
+                ReszfaBejarasInorder(p.bal, muvelet);
+                muvelet(p.tart);
+                ReszfaBejarasInorder(p.jobb, muvelet);
+            }
+        }
+        static void ReszfaBejarasPostorder(FaElem<T> p, Action<T> muvelet)
+        {
+            if (p!= null)
+            {
+                ReszfaBejarasPostorder(p.bal, muvelet);
+                ReszfaBejarasPostorder(p.jobb, muvelet);
+                muvelet(p.tart);
+            }
+        }
         public void Bejar(Action<T> muvelet)
         {
-            throw new NotImplementedException();
+            ReszfaBejarasPreorder(gyoker, muvelet);
         }
 
         static FaElem<T> ReszfabaBeszur(FaElem<T> p, T ertek)
