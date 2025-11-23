@@ -228,7 +228,7 @@ namespace OE.ALGA.Tesztek.Adatszerkezetek
         {
             int[] A = [5, 8, 7, 0, 9, 6, 4, 1, 3, 2];
             KupacRendezes<int> k = new KupacRendezes<int>(A);
-            k.Rendez();
+            k.Rendezes();
 
             Assert.Multiple(() =>
             {

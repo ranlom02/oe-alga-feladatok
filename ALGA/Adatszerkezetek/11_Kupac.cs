@@ -62,7 +62,7 @@ namespace OE.ALGA.Adatszerkezetek
         public KupacRendezes(T[] A) : base(A, A.Length, (a, b) => a.CompareTo(b) > 0)
         {
         }
-        public void Rendez()
+        public void Rendezes()
         {
 
             KupacotEpit();
